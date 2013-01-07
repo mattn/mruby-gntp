@@ -1,5 +1,7 @@
 #include <mruby.h>
 #include <mruby/string.h>
+#include "md5.h"
+#include "growl.h"
 
 extern void gntp_notify_send(const char*, const char*, const char*, const char*);
 extern void* gntp_create(const char*, const char*, const char*, const char*);
@@ -20,7 +22,7 @@ mrb_gntp_notify_send(mrb_state *mrb, mrb_value self)
   }
 
   if (mrb_type(arg) == MRB_TT_STRING) {
-    gntp_notify_send("mruby-gntp", "gntp-notify", "notify", RSTRING_PTR(arg));
+    growl("127.0.0.1:23053", "mruby-gntp", "notify", "notification", RSTRING_PTR(arg), NULL, NULL, NULL);
   } else {
   }
 
