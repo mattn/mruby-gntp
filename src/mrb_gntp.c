@@ -5,8 +5,6 @@
 #include "growl.h"
 #include <stdio.h>
 
-static struct RClass *_class_gntp;
-
 const char*
 hash_value(mrb_state* mrb, mrb_value hash, const char* key, const char* defvalue) {
   mrb_sym vkey = mrb_intern(mrb, key);
@@ -72,7 +70,7 @@ mrb_gntp_notify(mrb_state *mrb, mrb_value self)
 
 void
 mrb_mruby_gntp_gem_init(mrb_state* mrb) {
-  _class_gntp = mrb_define_module(mrb, "GNTP");
+  struct RClass* _class_gntp = mrb_define_module(mrb, "GNTP");
   mrb_define_class_method(mrb, _class_gntp, "notify", mrb_gntp_notify_send, ARGS_REQ(1));
   /*
   mrb_define_method(mrb, _class_gntp, "initialize", mrb_gntp_init, ARGS_REQ(1));
