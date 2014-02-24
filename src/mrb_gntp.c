@@ -7,7 +7,7 @@
 
 const char*
 hash_value(mrb_state* mrb, mrb_value hash, const char* key, const char* defvalue) {
-  mrb_sym vkey = mrb_intern(mrb, key);
+  mrb_sym vkey = mrb_intern_cstr(mrb, key);
   mrb_value r = mrb_hash_get(mrb, hash, mrb_symbol_value(vkey));
   if (!mrb_nil_p(r)) {
     return RSTRING_PTR(mrb_funcall(mrb, r, "to_s", 0, NULL));
