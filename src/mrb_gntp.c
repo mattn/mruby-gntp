@@ -71,11 +71,11 @@ mrb_gntp_notify(mrb_state *mrb, mrb_value self)
 void
 mrb_mruby_gntp_gem_init(mrb_state* mrb) {
   struct RClass* _class_gntp = mrb_define_module(mrb, "GNTP");
-  mrb_define_class_method(mrb, _class_gntp, "notify", mrb_gntp_notify_send, ARGS_REQ(1));
+  mrb_define_class_method(mrb, _class_gntp, "notify", mrb_gntp_notify_send, MRB_ARGS_REQ(1));
   /*
-  mrb_define_method(mrb, _class_gntp, "initialize", mrb_gntp_init, ARGS_REQ(1));
-  mrb_define_method(mrb, _class_gntp, "register", mrb_gntp_register, ARGS_REQ(1));
-  mrb_define_method(mrb, _class_gntp, "notify", mrb_gntp_notify, ARGS_REQ(1));
+  mrb_define_method(mrb, _class_gntp, "initialize", mrb_gntp_init, MRB_ARGS_REQ(1));
+  mrb_define_method(mrb, _class_gntp, "register", mrb_gntp_register, MRB_ARGS_REQ(1));
+  mrb_define_method(mrb, _class_gntp, "notify", mrb_gntp_notify, MRB_ARGS_REQ(1));
   */
 }
 
